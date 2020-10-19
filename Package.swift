@@ -5,15 +5,6 @@ import PackageDescription
 let package = Package(
     name: "SourceKitLSP",
     products: [
-      .executable(
-        name: "sourcekit-lsp",
-        targets: ["sourcekit-lsp"]
-      ),
-      .library(
-        name: "_SourceKitLSP",
-        type: .dynamic,
-        targets: ["SourceKitLSP"]
-      ),
         .library(
           name: "LSPLogging",
           type: .dynamic,
@@ -23,7 +14,7 @@ let package = Package(
         ),
         .library(
           name: "LSPBindings",
-          type: .static,
+          type: .dynamic,
           targets: [
             "LanguageServerProtocol",
             "LanguageServerProtocolJSONRPC",
@@ -42,7 +33,16 @@ let package = Package(
           targets: [
             "LanguageServerProtocolJSONRPC",
           ]
-        )
+        ),
+        .library(
+          name: "_SourceKitLSP",
+          type: .dynamic,
+          targets: ["SourceKitLSP"]
+        ),
+        .executable(
+          name: "sourcekit-lsp",
+          targets: ["sourcekit-lsp"]
+        ),
     ],
     dependencies: [
       // See 'Dependencies' below.
