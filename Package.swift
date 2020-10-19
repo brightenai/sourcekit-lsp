@@ -15,6 +15,13 @@ let package = Package(
         targets: ["SourceKitLSP"]
       ),
         .library(
+          name: "LSPLogging",
+          type: .dynamic,
+          targets: [
+            "LSPLogging",
+          ]
+        ),
+        .library(
           name: "LSPBindings",
           type: .static,
           targets: [
