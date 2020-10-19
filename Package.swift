@@ -14,14 +14,28 @@ let package = Package(
         type: .dynamic,
         targets: ["SourceKitLSP"]
       ),
-      .library(
-        name: "LSPBindings",
-        type: .static,
-        targets: [
-          "LanguageServerProtocol",
-          "LanguageServerProtocolJSONRPC",
-        ]
-      )
+        .library(
+          name: "LSPBindings",
+          type: .static,
+          targets: [
+            "LanguageServerProtocol",
+            "LanguageServerProtocolJSONRPC",
+          ]
+        ),
+        .library(
+          name: "LanguageServerProtocol",
+          type: .dynamic,
+          targets: [
+            "LanguageServerProtocol",
+          ]
+        ),
+        .library(
+          name: "LanguageServerProtocolJSONRPC",
+          type: .dynamic,
+          targets: [
+            "LanguageServerProtocolJSONRPC",
+          ]
+        )
     ],
     dependencies: [
       // See 'Dependencies' below.
